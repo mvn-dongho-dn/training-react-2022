@@ -17,7 +17,7 @@ const Header = () => {
               <NavLink activeClassName="active" exact to="/products">Productss</NavLink >
             </li>
             <li>
-              <NavLink activeClassName="active" to="/about-us">About Us</NavLink >
+              <NavLink activeClassName="active" to="/about-us">{process.env.REACT_APP_TEST}</NavLink >
             </li>
           </ul>
         </nav>
