@@ -8,7 +8,7 @@ import Products from './Products'
 
 export default function Features() {
   return (
-    <>
+    <div>
       <Switch>
         <Route path="/products/:id">
           <ProductDetail />
@@ -23,6 +23,6 @@ export default function Features() {
           <Home />
         </Route>
       </Switch>
-    </>
+    </div>
   )
 }
