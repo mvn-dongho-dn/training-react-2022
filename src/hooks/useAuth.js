@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import {useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 const useAuth = () => {
   const [user, setUser] = useState(localStorage.getItem('user'));
   const [isLogged, setIsLogged] = useState(!!user);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const login = (email, password) => {
     return new Promise((res, rej) => {
@@ -12,7 +12,7 @@ const useAuth = () => {
         localStorage.setItem('user', JSON.stringify({email}));
         setUser({email});
         setIsLogged(true);
-        history.push('/account');
+        navigate('/account');
         res({email});
       }, 1000);
     });
@@ -21,7 +21,7 @@ const useAuth = () => {
   const logout = () => {
     localStorage.removeItem('user');
     setIsLogged(false);
-    history.push('/');
+    navigate('/');
   }
 
   return {isLogged, login, logout};

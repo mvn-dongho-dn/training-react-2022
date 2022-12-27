@@ -199,38 +199,39 @@ import './App.css';
 // }
 
 
-import React, { Suspense } from 'react'
-import { Switch } from 'react-router-dom';
-import { Route } from 'react-router-dom';
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 // import Account from './pages/Account';
 // import Features from './pages/Features';
 // import Auth from './pages/Auth';
-import Header from './components/Header';
 import Footer from './components/Footer';
-import PrivateRoute from './core/guards/PrivateRoute';
+import Header from './components/Header';
+// import PrivateRoute from './core/guards/PrivateRoute';
 
-const Account = React.lazy(() => import('./pages/Account'));
-const Auth = React.lazy(() => import('./pages/Auth'));
-const Features = React.lazy(() => import('./pages/Features'));
+// const Account = React.lazy(() => import('./pages/Account'));
+// const Auth = React.lazy(() => import('./pages/Auth'));
+// const Features = React.lazy(() => import('./pages/Features'));
 
 export default function App() {
   return (
     <>
       <Header />
       <main className="page-main">
-        <Suspense fallback={<div>Loading...</div>}>
-          <Switch>
-            <PrivateRoute path="/account">
-              <Account />
-            </PrivateRoute>
-            <Route path="/auth">
-              <Auth />
-            </Route>
-            <Route path="/">
-              <Features />
-            </Route>
-          </Switch>
-        </Suspense>
+        {/* <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route
+              path="/account"
+              element={
+                <PrivateRoute>
+                  <Account />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/" element={<Features />} />
+          </Routes>
+        </Suspense> */}
+        <Outlet />
       </main>
       <Footer />
     </>
