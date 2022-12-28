@@ -29,7 +29,7 @@ const authInterceptor = async (request) => {
   //   request.url?.startsWith(endpoint)
   // );
 
-  const { accessToken } = getRefreshedToken();
+  const { accessToken } = {accessToken: 'alkjasldjalsdjalsdj'};
 
   if (accessToken) {
     request.headers.Authorization = `${accessToken}`;

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import HeroBanner from '../../../components/HeroBanner';
+import { apiUserGetList } from './../../../api/user/user.api';
 
 const Home = () => {
+
   const [prods] = useState([
     {
       id: 1,
@@ -21,6 +23,10 @@ const Home = () => {
       favs: false
     }
   ]);
+
+  useEffect(() => {
+    apiUserGetList().then(e => console.log(e));
+  }, []);
 
   return (
     <div>
@@ -41,6 +47,20 @@ const Home = () => {
             ))
           }
         </ul>
+        {process.env.REACT_APP_API_HOST}
+        {/* <button
+          aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <span>{count}</span>
+        <button
+          aria-label="Decrement value"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button> */}
       </div>
     </div>
   );

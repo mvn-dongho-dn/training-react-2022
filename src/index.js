@@ -9,15 +9,19 @@ import {
 } from "react-router-dom";
 
 import router from './routes/routes';
+import { Provider } from 'react-redux'
+import { store } from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-      <Router>
-        <App />
-      </Router>
-    </RouterProvider>
+    <Provider store={store}>
+      <RouterProvider router={router}>
+        <Router>
+          <App />
+        </Router>
+      </RouterProvider>
+    </Provider>
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
