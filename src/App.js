@@ -231,6 +231,7 @@ export default function App() {
             <Route path="/" element={<Features />} />
           </Routes>
         </Suspense> */}
+        {process.env.REACT_APP_TEST}
         <Outlet />
       </main>
       <Footer />
